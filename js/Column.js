@@ -1,8 +1,9 @@
 function Column(id, name) {
+	var self = this;
+
 	this.id = id;
     this.name = name || 'No name given';
     this.element = createColumn();
-
 
 	function createColumn() {
 		// TWORZENIE NOWYCH WĘZŁÓW
@@ -28,7 +29,7 @@ function Column(id, name) {
               		name: cardName,
     				bootcamp_kanban_column_id: self.id
         		},
-        		success: function() {
+        		success: function(response) {
             		var card = new Card(response.id, cardName);
         			self.createCard(card);
         		}
